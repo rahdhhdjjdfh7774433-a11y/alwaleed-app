@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="color-scheme" content="dark">
+    <title>منصة المبادرات الملكية</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #050a15 !important; color: #ffffff !important; font-family: Tahoma, Arial, sans-serif; direction: rtl; padding-bottom: 80px; min-height: 100vh;">
+
+    <!-- ==================== الشاشة الرئيسية ==================== -->
+    <div id="home-page" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        
+        <div style="text-align: center; padding: 30px 0 20px;">
+            <h1 style="color: #d4af37 !important; font-size: 26px; font-weight: bold; margin: 0 0 5px 0;">منصة المبادرات الملكية</h1>
+            <p style="color: #94a3b8 !important; font-size: 14px; margin: 0;">بوابة الخدمات الإلكترونية المعتمدة</p>
+        </div>
+
+        <!-- بطاقة الرصيد -->
+        <div style="background-color: #0f172a !important; border: 1px solid #1e293b; border-radius: 20px; padding: 25px 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); position: relative; margin-bottom: 30px;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #d4af37; border-radius: 20px 20px 0 0;"></div>
+            
+            <p style="color: #94a3b8 !important; font-size: 15px; margin: 0 0 10px 0;">الرصيد التقديري للمؤسسة</p>
+            <div style="color: #ffffff !important; font-size: 32px; font-weight: bold; margin-bottom: 25px;">
+                1,000,000,000 <span style="font-size: 16px; color: #d4af37 !important;">ر.س</span>
+            </div>
+            
+            <div style="background-color: #050a15 !important; border-radius: 12px; padding: 15px; text-align: right;">
+                <div style="margin-bottom: 15px;">
+                    <div style="color: #94a3b8 !important; font-size: 12px; margin-bottom: 4px;">رقم الحساب البنكي</div>
+                    <div style="color: #ffffff !important; font-family: monospace; font-size: 15px; direction: ltr; text-align: left;">SA66 1000 0000 0400 010</div>
+                </div>
+                <div>
+                    <div style="color: #94a3b8 !important; font-size: 12px; margin-bottom: 4px;">اسم الحساب</div>
+                    <div style="color: #ffffff !important; font-size: 15px; font-weight: bold;">مؤسسة الوليد بن طلال الخيرية</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: #ffffff !important; font-size: 18px; margin: 0 0 15px 0;">الخدمات المالية</h3>
+        
+        <button onclick="openTransfer()" style="width: 100%; padding: 18px; border-radius: 14px; font-size: 18px; font-weight: bold; background-color: #d4af37 !important; color: #000000 !important; border: none; cursor: pointer; margin-bottom: 15px;">
+            إصدار أمر تحويل جديد +
+        </button>
+        
+        <button onclick="alert('هذه الميزة مخصصة للإدارة فقط.')" style="width: 100%; padding: 18px; border-radius: 14px; font-size: 16px; font-weight: bold; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; cursor: pointer; margin-bottom: 15px;">
+            إدارة الرصيد
+        </button>
+        
+        <button onclick="alert('سجل الفواتير فارغ حالياً.')" style="width: 100%; padding: 18px; border-radius: 14px; font-size: 16px; font-weight: bold; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; cursor: pointer; margin-bottom: 15px;">
+            كشف الحساب والفواتير
+        </button>
+
+    </div>
+
+    <!-- ==================== واجهة تحويل المنحة ==================== -->
+    <div id="transfer-page" style="display: none; max-width: 600px; margin: 0 auto; padding: 20px;">
+        
+        <div style="text-align: center; padding: 20px 0;">
+            <h2 style="color: #ffffff !important; font-size: 24px; margin: 0 0 5px 0;">أمر تحويل مالي</h2>
+            <div style="color: #d4af37 !important; font-size: 14px; font-weight: bold;">الخطوة <span id="step-num">1</span> من 4</div>
+        </div>
+
+        <!-- الخطوة 1 -->
+        <div id="step-1" class="step-content">
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="display: block; color: #ffffff !important; font-size: 14px; margin-bottom: 8px; font-weight: bold;">اسم المستفيد بالكامل <span style="color: #ef4444 !important;">*</span></label>
+                <input type="text" id="val-name" placeholder="أدخل الاسم الثلاثي" style="width: 100%; box-sizing: border-box; padding: 15px; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; border-radius: 10px; font-size: 15px; -webkit-text-fill-color: #ffffff !important;">
+            </div>
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="display: block; color: #ffffff !important; font-size: 14px; margin-bottom: 8px; font-weight: bold;">رقم الهوية / السجل المدني <span style="color: #ef4444 !important;">*</span></label>
+                <input type="text" id="val-id" placeholder="مثال: 1234567890" style="width: 100%; box-sizing: border-box; padding: 15px; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; border-radius: 10px; font-size: 15px; -webkit-text-fill-color: #ffffff !important;">
+            </div>
+            <div style="margin-bottom: 30px; text-align: right;">
+                <label style="display: block; color: #ffffff !important; font-size: 14px; margin-bottom: 8px; font-weight: bold;">رقم الحساب البنكي <span style="color: #ef4444 !important;">*</span></label>
+                <input type="text" id="val-iban" placeholder="SA000000000000000000" style="width: 100%; box-sizing: border-box; padding: 15px; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; border-radius: 10px; font-size: 15px; text-align: left; font-family: monospace; -webkit-text-fill-color: #ffffff !important;">
+            </div>
+            
+            <div style="display: flex; gap: 15px;">
+                <button onclick="goToStep(2)" style="flex: 1; padding: 16px; border-radius: 12px; background-color: #2563eb !important; color: #ffffff !important; border: none; font-size: 16px; font-weight: bold; cursor: pointer;">متابعة</button>
+                <button onclick="closeTransfer()" style="flex: 1; padding: 16px; border-radius: 12px; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; font-size: 16px; font-weight: bold; cursor: pointer;">إلغاء</button>
+            </div>
+        </div>
+
+        <!-- الخطوة 2 -->
+        <div id="step-2" class="step-content" style="display: none;">
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="display: block; color: #ffffff !important; font-size: 14px; margin-bottom: 8px; font-weight: bold;">مبلغ التحويل (ريال سعودي) <span style="color: #ef4444 !important;">*</span></label>
+                <div style="position: relative;">
+                    <input type="number" id="val-amount" placeholder="0.00" oninput="calculateFees()" style="width: 100%; box-sizing: border-box; padding: 15px; background-color: #0f172a !important; color: #d4af37 !important; border: 1px solid #1e293b; border-radius: 10px; font-size: 20px; font-weight: bold; -webkit-text-fill-color: #d4af37 !important;">
+                    <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8 !important; font-weight: bold;">ر.س</span>
+                </div>
+            </div>
+            
+            <div style="background-color: #0f172a !important; border: 1px solid #1e293b; border-radius: 16px; padding: 20px; margin-top: 20px; margin-bottom: 30px;">
+                <h4 style="color: #d4af37 !important; margin: 0 0 15px 0; font-size: 16px;">ملخص أمر التحويل</h4>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px;">
+                    <span style="color: #94a3b8 !important;">المستفيد:</span>
+                    <span style="color: #ffffff !important; font-weight: bold;" id="summary-name">-</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px;">
+                    <span style="color: #94a3b8 !important;">مبلغ المنحة:</span>
+                    <span style="color: #10b981 !important; font-weight: bold;" id="summary-amount">0.00 ر.س</span>
+                </div>
+                <!-- تم تعديل النسبة إلى 7% هنا -->
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px;">
+                    <span style="color: #94a3b8 !important;">الضريبة البنكية (7%):</span>
+                    <span style="color: #d4af37 !important; font-weight: bold;" id="summary-tax">0.00 ر.س</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-top: 1px dashed #1e293b; padding-top: 12px; font-size: 14px;">
+                    <span style="color: #94a3b8 !important;">المجموع الكلي:</span>
+                    <span style="color: #60a5fa !important; font-weight: bold; font-size: 16px;" id="summary-total">0.00 ر.س</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <button onclick="goToStep(3)" style="flex: 1; padding: 16px; border-radius: 12px; background-color: #2563eb !important; color: #ffffff !important; border: none; font-size: 16px; font-weight: bold; cursor: pointer;">متابعة</button>
+                <button onclick="goToStep(1)" style="flex: 1; padding: 16px; border-radius: 12px; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; font-size: 16px; font-weight: bold; cursor: pointer;">رجوع</button>
+            </div>
+        </div>
+
+        <!-- الخطوة 3 -->
+        <div id="step-3" class="step-content" style="display: none;">
+            <div style="background-color: #0f172a !important; border: 1px solid #1e293b; border-radius: 16px; padding: 20px; margin-bottom: 15px;">
+                <h3 style="color: #d4af37 !important; margin: 0 0 15px 0; font-size: 16px;">مراجعة البيانات</h3>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px;">
+                    <span style="color: #94a3b8 !important;">المستفيد</span>
+                    <span style="color: #ffffff !important; font-weight: bold;" id="rev-name">-</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px;">
+                    <span style="color: #94a3b8 !important;">رقم الحساب</span>
+                    <span style="color: #ffffff !important; font-weight: bold;" id="rev-account">-</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                    <span style="color: #94a3b8 !important;">مبلغ المنحة</span>
+                    <span style="color: #10b981 !important; font-weight: bold;" id="rev-amount">0.00 ر.س</span>
+                </div>
+            </div>
+
+            <div style="background-color: #1a1014 !important; border: 1px solid #4c1d24; border-radius: 16px; padding: 20px; margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <h4 style="color: #fca5a5 !important; margin: 0; font-size: 16px;">الرسوم المطلوبة</h4>
+                    <span style="color: #fca5a5 !important;">⚠️</span>
+                </div>
+                <!-- تم تعديل النسبة إلى 7% هنا أيضاً -->
+                <p style="color: #f87171 !important; font-size: 13px; margin: 0 0 15px 0;">يرجى تأكيد العملية لسداد رسوم الضريبة البنكية (7%).</p>
+                <div style="background-color: #050a15 !important; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #ffffff !important; font-size: 13px;">المبلغ المطلوب:</span>
+                    <strong style="color: #d4af37 !important; font-size: 20px;" id="rev-tax">0.00 ر.س</strong>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <button onclick="goToStep(4)" style="flex: 1; padding: 16px; border-radius: 12px; background-color: #2563eb !important; color: #ffffff !important; border: none; font-size: 16px; font-weight: bold; cursor: pointer;">تأكيد التحويل</button>
+                <button onclick="goToStep(2)" style="flex: 1; padding: 16px; border-radius: 12px; background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #1e293b; font-size: 16px; font-weight: bold; cursor: pointer;">رجوع</button>
+            </div>
+        </div>
+
+        <!-- الخطوة 4 -->
+        <div id="step-4" class="step-content" style="display: none;">
+            <div style="background-color: #0f172a !important; border: 1px solid #1e293b; border-radius: 16px; padding: 30px 20px; text-align: center;">
+                <div style="font-size: 60px; color: #ef4444 !important; margin-bottom: 15px;">⛔</div>
+                <h3 style="color: #ffffff !important; font-size: 22px; margin: 0 0 10px 0; font-weight: bold;">تعذر إتمام العملية</h3>
+                <div style="color: #ef4444 !important; font-size: 14px; font-weight: bold; background-color: #1a1014 !important; display: inline-block; padding: 5px 15px; border-radius: 20px; margin-bottom: 25px;">تم رفض المعاملة</div>
+                
+                <div style="background-color: #050a15 !important; border-radius: 12px; padding: 15px; text-align: right; margin-bottom: 25px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px;">
+                        <span style="color: #94a3b8 !important;">رقم المعاملة:</span>
+                        <span style="color: #ffffff !important; font-family: monospace;">TXN-8849302</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px;">
+                        <span style="color: #94a3b8 !important;">رمز النظام:</span>
+                        <span style="color: #ef4444 !important; font-weight: bold;">ERR_FEE_UNPAID</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px dashed #1e293b; padding-top: 10px; font-size: 13px;">
+                        <span style="color: #94a3b8 !important;">السبب:</span>
+                        <span style="color: #ef4444 !important; font-weight: bold;">لم يتم سداد الرسوم</span>
+                    </div>
+                </div>
+
+                <button onclick="closeTransfer()" style="width: 100%; padding: 16px; border-radius: 12px; background-color: #1e293b !important; color: #ffffff !important; border: none; font-size: 16px; font-weight: bold; cursor: pointer;">حسناً، إغلاق</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentTax = 0; 
+
+        function openTransfer() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('transfer-page').style.display = 'block';
+            goToStep(1);
+        }
+
+        function closeTransfer() {
+            document.getElementById('transfer-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            clearForm();
+        }
+
+        function calculateFees() {
+            let amount = parseFloat(document.getElementById('val-amount').value) || 0;
+            // تم تعديل الحساب إلى 7%
+            currentTax = amount * 0.07; 
+            let total = amount + currentTax;
+
+            document.getElementById('summary-amount').innerText = amount.toFixed(2) + ' ر.س';
+            document.getElementById('summary-tax').innerText = currentTax.toFixed(2) + ' ر.س';
+            document.getElementById('summary-total').innerText = total.toFixed(2) + ' ر.س';
+        }
+
+        function goToStep(step) {
+            if (step === 2) {
+                if (!document.getElementById('val-name').value || !document.getElementById('val-id').value || !document.getElementById('val-iban').value) {
+                    alert('يرجى تعبئة جميع الحقول المطلوبة.');
+                    return;
+                }
+                document.getElementById('summary-name').innerText = document.getElementById('val-name').value;
+            }
+            
+            if (step === 3) {
+                if (!document.getElementById('val-amount').value) {
+                    alert('يرجى إدخال مبلغ المنحة أولاً.');
+                    return;
+                }
+                document.getElementById('rev-name').innerText = document.getElementById('val-name').value;
+                document.getElementById('rev-account').innerText = document.getElementById('val-id').value; 
+                
+                let amount = parseFloat(document.getElementById('val-amount').value).toFixed(2);
+                document.getElementById('rev-amount').innerText = amount + ' ر.س';
+                document.getElementById('rev-tax').innerText = currentTax.toFixed(2) + ' ر.س';
+            }
+
+            document.querySelectorAll('.step-content').forEach(el => el.style.display = 'none');
+            document.getElementById('step-' + step).style.display = 'block';
+            document.getElementById('step-num').innerText = step;
+        }
+
+        function clearForm() {
+            document.getElementById('val-name').value = '';
+            document.getElementById('val-id').value = '';
+            document.getElementById('val-iban').value = '';
+            document.getElementById('val-amount').value = '';
+            calculateFees(); 
+        }
+    </script>
+</body>
+</html>
+
